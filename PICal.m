@@ -52,7 +52,7 @@ Rs_pu = Rs/RBase_Ohm;
 
 Kt = 1.5*Pp*Flux;
 Kp = 2*pi*F*Ls;
-Ki = 2*pi*F*Ts*Rs;c
+Ki = 2*pi*F*Ts*Rs;
 Ts_pu =Ts/tBase_s;
 
 Kp_pu = 2*pi*F_pu*Ls_pu;
