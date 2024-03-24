@@ -1,1 +1,5 @@
 # List of untracked files to ignore
+*.slxc
+*.exe
+/slprj
+/MtrCtrl_24V_grt_rtw
