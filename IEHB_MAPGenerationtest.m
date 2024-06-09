@@ -1,6 +1,6 @@
 clear,clc;
 
-load IEHBDATA.mat
+% load IEHBDATA.mat
 Ld = 68e-6;
 Lq = 60e-6;
 phi = 0.0059;
@@ -97,7 +97,7 @@ for spd = [900 1000 1100 1250 1400 1550 1700 1850 2000 2200 2400 2600 3000 3500 
     subplot(1,2,1);
     plot(MAPId_Caculation_Interp,MAPIq_Caculation_Interp,'LineWidth',2);
     if n <= 15
-       plot(MAPId{n, 1}(1,:),MAPIq{n, 1}(1,:),'*');
+%        plot(MAPId{n, 1}(1,:),MAPIq{n, 1}(1,:),'*');
        hold on;
     else
        % do nothing;
@@ -145,14 +145,14 @@ for n = 1:MAP_ROW
     LUTVctr_Tmx_temp(1,n) = max(LUTMAP_Te_Ori{n,1});
 end
 
-LUTMAP_Iq = iehb_pkg.Parameter;
-LUTMAP_Id = iehb_pkg.Parameter;
-LUTVctr_Spd = iehb_pkg.Parameter;
-LUTVctr_Tmx = iehb_pkg.Parameter;
-LUTVctr_Te = iehb_pkg.Parameter;
-KCCM_MaxSpd_RPM = iehb_pkg.Parameter;
-KCCM_MinSpd_RPM = iehb_pkg.Parameter;
-KCCM_TqUpLimt_NM = iehb_pkg.Parameter;
+LUTMAP_Iq = Simulink.Parameter;
+LUTMAP_Id = Simulink.Parameter;
+LUTVctr_Spd = Simulink.Parameter;
+LUTVctr_Tmx = Simulink.Parameter;
+LUTVctr_Te = Simulink.Parameter;
+KCCM_MaxSpd_RPM = Simulink.Parameter;
+KCCM_MinSpd_RPM = Simulink.Parameter;
+KCCM_TqUpLimt_NM = Simulink.Parameter;
 
 LUTMAP_Iq.Value = LUTMAP_Iq_temp(:,1:end);
 LUTMAP_Id.Value = LUTMAP_Id_temp(:,1:end);
@@ -166,25 +166,25 @@ KCCM_TqUpLimt_NM.Value = max(LUTVctr_Tmx_temp);
 
 
 
-LUTMAP_Id.DataType = 'single';
-LUTMAP_Id.StorageClass = 'Const';
-LUTMAP_Iq.DataType = 'single';
-LUTMAP_Iq.StorageClass = 'Const';
-LUTVctr_Spd.DataType = 'single';
-LUTVctr_Spd.StorageClass =  'Calibration';
-LUTVctr_Tmx.DataType = 'single';
-LUTVctr_Tmx.StorageClass =  'Calibration';
-LUTVctr_Te.DataType = 'single';
-LUTVctr_Te.StorageClass = 'Calibration';
-KCCM_MaxSpd_RPM.DataType = 'single';
-KCCM_MaxSpd_RPM.StorageClass =  'Calibration';
-KCCM_MinSpd_RPM.DataType = 'single';
-KCCM_MinSpd_RPM.StorageClass =  'Calibration';
-KCCM_TqUpLimt_NM.DataType = 'single';
-KCCM_TqUpLimt_NM.StorageClass =  'Calibration';
+% LUTMAP_Id.DataType = 'single';
+% LUTMAP_Id.StorageClass = 'Const';
+% LUTMAP_Iq.DataType = 'single';
+% LUTMAP_Iq.StorageClass = 'Const';
+% LUTVctr_Spd.DataType = 'single';
+% LUTVctr_Spd.StorageClass =  'single';
+% LUTVctr_Tmx.DataType = 'single';
+% LUTVctr_Tmx.StorageClass =  'single';
+% LUTVctr_Te.DataType = 'single';
+% LUTVctr_Te.StorageClass = 'single';
+% KCCM_MaxSpd_RPM.DataType = 'single';
+% KCCM_MaxSpd_RPM.StorageClass =  'single';
+% KCCM_MinSpd_RPM.DataType = 'single';
+% KCCM_MinSpd_RPM.StorageClass =  'single';
+% KCCM_TqUpLimt_NM.DataType = 'single';
+% KCCM_TqUpLimt_NM.StorageClass =  'single';
 
 
-MtrInformation = 'XiaoChengIEHB_5.25nm';
-CurveTime = datestr(now);
-save LUTData.mat  LUTMAP_Iq  LUTMAP_Id LUTVctr_Spd LUTVctr_Tmx LUTVctr_Te ...
-    KCCM_MaxSpd_RPM KCCM_MinSpd_RPM KCCM_TqUpLimt_NM MtrInformation CurveTime;
+% MtrInformation = 'XiaoChengMotor_5.25nm';
+% CurveTime = datestr(now);
+% save LUTData.mat  LUTMAP_Iq  LUTMAP_Id LUTVctr_Spd LUTVctr_Tmx LUTVctr_Te ...
+%     KCCM_MaxSpd_RPM KCCM_MinSpd_RPM KCCM_TqUpLimt_NM MtrInformation CurveTime;
