@@ -10,7 +10,9 @@ for i = 1:TableSize
     cosTable(1,i) = cos(Angle_rad);
     cosTable(2,i) = Angle_rad;
 end
-plot(sinTable);
+C_LUT_SinTable_sng_Null = sinTable(1,:);
+C_LUT_AngleTable_sng_Null = sinTable(2,:);
+% C_LUT_CosTable_sng_Null = cosTable(1,i);
 
 
 
